@@ -111,13 +111,10 @@ document.getElementById('numero').addEventListener('input', function(event) {
     const valorAtual = numeroInput.value;
     const erroNumero = document.getElementById('erroNumero');
 
-    // Remove qualquer caractere que não seja número
     const valorApenasNumeros = valorAtual.replace(/\D/g, '');
 
-    // Atualiza o valor do campo com apenas números
     numeroInput.value = valorApenasNumeros;
 
-    // Exibe uma mensagem de erro se o valor contiver caracteres não numéricos
     if (valorAtual !== valorApenasNumeros) {
         erroNumero.textContent = 'Apenas números são permitidos.';
         erroNumero.style.display = 'block';
@@ -176,12 +173,10 @@ function adicionarBordaPreenchido(input) {
     }
 }
 
-// Aplicar a todos os campos de texto, data, CPF, telefone, etc.
 document.querySelectorAll('input[type="text"], input[type="date"], input[type="email"], input[type="tel"], select').forEach(input => {
     input.addEventListener('input', function() {
         adicionarBordaPreenchido(this);
     });
 
-    // Verificar ao carregar a página se o campo já está preenchido
     adicionarBordaPreenchido(input);
 });
