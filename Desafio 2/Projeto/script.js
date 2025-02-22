@@ -105,6 +105,28 @@ document.getElementById('cep').addEventListener('input', function(event) {
     event.target.value = cep;
 });
 
+/*___________________________Validação do Campo Número do Endereço____________________________________________________________________*/
+document.getElementById('numero').addEventListener('input', function(event) {
+    const numeroInput = event.target;
+    const valorAtual = numeroInput.value;
+    const erroNumero = document.getElementById('erroNumero');
+
+    // Remove qualquer caractere que não seja número
+    const valorApenasNumeros = valorAtual.replace(/\D/g, '');
+
+    // Atualiza o valor do campo com apenas números
+    numeroInput.value = valorApenasNumeros;
+
+    // Exibe uma mensagem de erro se o valor contiver caracteres não numéricos
+    if (valorAtual !== valorApenasNumeros) {
+        erroNumero.textContent = 'Apenas números são permitidos.';
+        erroNumero.style.display = 'block';
+    } else {
+        erroNumero.textContent = '';
+        erroNumero.style.display = 'none';
+    }
+});
+
 /* ___________________________Formatação Automática do Telefone____________________________________________________________________*/
 
 document.getElementById('telefone').addEventListener('input', function(event) {
