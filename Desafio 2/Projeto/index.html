@@ -11,7 +11,7 @@
         <h1>Formulário de Inscrição</h1>
         <form id="inscricaoForm">
 
-<!-- ___________________________Informações do Participante______________________________________________________________________-->            
+<!-- ___________________________Informações do Participante________________________________________________________________-->            
             
             <h2>Informações do Participante</h2>
             <label for="nome">👤 Nome completo:</label>
@@ -41,7 +41,7 @@
             
             <label for="documento">📄 Documento de identidade:</label>
             <input type="file" id="documento" name="documento" required>
-<!-- ___________________________Endereço Residencial______________________________________________________________________-->            
+<!-- ___________________________Endereço Residencial________________________________________________________________________________-->            
 
 
             <h2>Endereço Residencial</h2>
@@ -67,7 +67,7 @@
             <label for="comprovante">📑 Comprovante de residência:</label>
             <input type="file" id="comprovante" name="comprovante" required>
 
-<!-- ___________________________Trilhas de Aprendizagem______________________________________________________________________-->            
+<!-- ___________________________Trilhas de Aprendizagem________________________________________________________________-->            
 
 
             <h2>Trilhas de Aprendizagem</h2>
@@ -117,6 +117,7 @@
                     </div>
                 </label>
             </div>
+            <div id="erroTrilha" class="erro-mensagem"></div>
 <!-- ___________________________Termos e Condições______________________________________________________________________-->            
 
             <label class="checkbox-label">
@@ -124,7 +125,7 @@
                 <span>Declaro que li e concordo com os <a href="termos.html" target="_blank">Termos e Condições</a> e com a <a href="termos.html" target="_blank">Política de Privacidade</a>.</span>
             </label>
 
-<!-- ___________________________Botões de Envio e Cancelar______________________________________________________________________-->            
+<!-- ___________________________Botões de Envio e Cancelar___________________________________________________________________________-->            
           
             <button type="submit">✅ Fazer Inscrição</button>
             <button type="button" id="cancelar">❌ Cancelar</button>
