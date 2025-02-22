@@ -10,56 +10,65 @@
     <div class="form-container">
         <h1>Formulário de Inscrição</h1>
         <form id="inscricaoForm">
+
+<!-- ___________________________Informações do Participante______________________________________________________________________-->            
+            
             <h2>Informações do Participante</h2>
-            <label for="nome">Nome completo:</label>
+            <label for="nome">👤 Nome completo:</label>
             <input type="text" id="nome" name="nome" required>
 
-            <label for="dataNascimento">Data de nascimento:</label>
-<input type="date" id="dataNascimento" name="dataNascimento" required>
-<div id="erroDataNascimento" class="erro-mensagem"></div> <!-- Elemento para a mensagem de erro -->
+            <label for="dataNascimento">🎂 Data de nascimento:</label>
+            <input type="date" id="dataNascimento" name="dataNascimento" required>
+            <div id="erroDataNascimento" class="erro-mensagem"></div>
 
-            <label for="cpf">CPF:</label>
-<input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required maxlength="14">
-<div id="erroCpf" class="erro-mensagem"></div>
+            <label for="cpf">🆔 CPF:</label>
+            <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required maxlength="14">
+            <div id="erroCpf" class="erro-mensagem"></div>
 
-            <label for="sexo">Sexo:</label>
+            <label for="sexo">♀️♂️ Sexo:</label>
             <select id="sexo" name="sexo" required>
                 <option value="feminino">Feminino</option>
                 <option value="masculino">Masculino</option>
                 <option value="outro">Outro</option>
             </select>
 
-            <label for="email">E-mail:</label>
+            <label for="email">📧 E-mail:</label>
             <input type="email" id="email" name="email" required>
 
-            <label for="telefone">Telefone:</label>
-            <input type="tel" id="telefone" name="telefone" required>
+            <label for="telefone">📞 Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" required>
             <div id="erroTelefone" class="erro-mensagem"></div>
             
-            <label for="documento">Documento de identidade:</label>
+            <label for="documento">📄 Documento de identidade:</label>
             <input type="file" id="documento" name="documento" required>
+<!-- ___________________________Endereço Residencial______________________________________________________________________-->            
+
 
             <h2>Endereço Residencial</h2>
-            <label for="cep">CEP:</label>   
+            <label for="cep">📍 CEP:</label>   
             <input type="text" id="cep" name="cep" placeholder="00000-000" required maxlength="9">
-            <div id="erroCep" class="erro-mensagem"></div> <!-- Mensagem de erro para CEP -->
+            <div id="erroCep" class="erro-mensagem"></div>
 
-            <label for="rua">Rua:</label>
+            <label for="rua">🛣️ Rua:</label>
             <input type="text" id="rua" name="rua" required>
 
-            <label for="numero">Número:</label>
+            <label for="numero">🏢 Número:</label>
             <input type="text" id="numero" name="numero" required>
+            <div id="erroNumero" class="erro-mensagem"></div>
 
-            <label for="cidade">Cidade:</label>
+            <label for="cidade">🌆 Cidade:</label>
             <input type="text" id="cidade" name="cidade" required>
 
-            <label for="estado">Estado:</label>
+            <label for="estado">🏞️ Estado:</label>
             <select id="estado" name="estado" required>
                 <option value="MA">Maranhão</option>
             </select>
 
-            <label for="comprovante">Comprovante de residência:</label>
+            <label for="comprovante">📑 Comprovante de residência:</label>
             <input type="file" id="comprovante" name="comprovante" required>
+
+<!-- ___________________________Trilhas de Aprendizagem______________________________________________________________________-->            
+
 
             <h2>Trilhas de Aprendizagem</h2>
             <div class="trilhas-grid">
@@ -108,14 +117,17 @@
                     </div>
                 </label>
             </div>
+<!-- ___________________________Termos e Condições______________________________________________________________________-->            
 
             <label class="checkbox-label">
                 <input type="checkbox" id="termos" name="termos" required>
                 <span>Declaro que li e concordo com os <a href="termos.html" target="_blank">Termos e Condições</a> e com a <a href="termos.html" target="_blank">Política de Privacidade</a>.</span>
             </label>
 
-            <button type="submit">Fazer Inscrição</button>
-            <button type="button" id="cancelar">Cancelar</button>
+<!-- ___________________________Botões de Envio e Cancelar______________________________________________________________________-->            
+          
+            <button type="submit">✅ Fazer Inscrição</button>
+            <button type="button" id="cancelar">❌ Cancelar</button>
         </form>
     </div>
     <script src="script.js"></script>

@@ -1,7 +1,8 @@
+/* ___________________________Validação do Formulário____________________________________________________________________*/
+
 document.getElementById('inscricaoForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    // Validação da idade
     const dataNascimento = new Date(document.getElementById('dataNascimento').value);
     const hoje = new Date();
     let idade = hoje.getFullYear() - dataNascimento.getFullYear();
@@ -9,78 +10,71 @@ document.getElementById('inscricaoForm').addEventListener('submit', function(eve
     if (mes < 0 || (mes === 0 && hoje.getDate() < dataNascimento.getDate())) {
         idade--;
     }
-
+    
+    // Verifica se a idade é válida
+    if (idade < 0 || idade > 100) {
+        alert('Por favor, insira uma data de nascimento válida.');
+        return;
+    }
+    
     if (idade < 16) {
         alert('Você deve ter mais de 16 anos para se inscrever.');
         return;
     }
 
-    // Validação do estado
     const estado = document.getElementById('estado').value;
     if (estado !== 'MA') {
         alert('Apenas residentes do Maranhão podem se inscrever.');
         return;
     }
 
-    // Validação da trilha selecionada
     const trilhaSelecionada = document.querySelector('input[name="trilha"]:checked');
     if (!trilhaSelecionada) {
         alert('Por favor, selecione uma trilha de aprendizagem.');
         return;
     }
 
-    // Validação do CPF
     const cpf = document.getElementById('cpf').value.replace(/\D/g, '');
     if (cpf.length !== 11) {
         alert('O CPF deve ter exatamente 11 dígitos.');
         return;
     }
 
-    // Validação do CEP
     const cep = document.getElementById('cep').value.replace(/\D/g, '');
     if (cep.length !== 8) {
         alert('O CEP deve ter exatamente 8 dígitos.');
         return;
     }
 
-    // Validação do telefone
     const telefone = document.getElementById('telefone').value.replace(/\D/g, '');
     if (telefone.length !== 11) {
         alert('O telefone deve ter exatamente 11 dígitos.');
         return;
     }
 
-    // Validação do e-mail
-    const email = document.getElementById('email').value;
-    const confirmarEmail = document.getElementById('confirmarEmail').value;
-    if (email !== confirmarEmail) {
-        alert('Os e-mails não coincidem.');
-        return;
-    }
-
-    // Se todas as validações passarem, redirecione para a página de sucesso
     window.location.href = 'success.html';
 });
 
-// Botão de cancelar
+/* ___________________________Botão de Cancelar______________________________________________________________________________________*/
+
 document.getElementById('cancelar').addEventListener('click', function() {
     document.getElementById('inscricaoForm').reset();
 });
 
-// Formatação automática do CPF
+/* ___________________________Formatação Automática do CPF____________________________________________________________________*/
+
 document.getElementById('cpf').addEventListener('input', function(event) {
     let cpf = event.target.value.replace(/\D/g, '');
-    const erroCpf = document.getElementById('erroCpf'); // Elemento de erro para CPF
+    const erroCpf = document.getElementById('erroCpf');
 
     if (cpf.length !== 11) {
         erroCpf.textContent = 'O CPF deve ter exatamente 11 dígitos.';
-        erroCpf.style.display = 'block'; // Exibe a mensagem de erro
+        erroCpf.style.display = 'block';
     } else {
-        erroCpf.textContent = ''; // Limpa a mensagem de erro
-        erroCpf.style.display = 'none'; // Oculta a mensagem de erro
+        erroCpf.textContent = '';
+        erroCpf.style.display = 'none';
     }
 
-    // Formatação automática do CPF
     if (cpf.length > 11) {
         cpf = cpf.substring(0, 11);
     }
@@ -90,20 +84,20 @@ document.getElementById('cpf').addEventListener('input', function(event) {
     event.target.value = cpf;
 });
 
-// Formatação automática do CEP
+/* ___________________________Formatação Automática do CEP____________________________________________________________________*/
+
 document.getElementById('cep').addEventListener('input', function(event) {
     let cep = event.target.value.replace(/\D/g, '');
-    const erroCep = document.getElementById('erroCep'); // Elemento de erro para CEP
+    const erroCep = document.getElementById('erroCep');
 
     if (cep.length !== 8) {
         erroCep.textContent = 'O CEP deve ter exatamente 8 dígitos.';
-        erroCep.style.display = 'block'; // Exibe a mensagem de erro
+        erroCep.style.display = 'block';
     } else {
-        erroCep.textContent = ''; // Limpa a mensagem de erro
-        erroCep.style.display = 'none'; // Oculta a mensagem de erro
+        erroCep.textContent = '';
+        erroCep.style.display = 'none';
     }
 
-    // Formatação automática do CEP
     if (cep.length > 8) {
         cep = cep.substring(0, 8);
     }
@@ -111,45 +105,61 @@ document.getElementById('cep').addEventListener('input', function(event) {
     event.target.value = cep;
 });
 
-// Formatação automática do telefone
+/* ___________________________Formatação Automática do Telefone____________________________________________________________________*/
+
 document.getElementById('telefone').addEventListener('input', function(event) {
     let telefone = event.target.value.replace(/\D/g, '');
-    const erroTelefone = document.getElementById('erroTelefone'); // Elemento de erro para telefone
+    const erroTelefone = document.getElementById('erroTelefone');
 
-    // Limita o telefone a 11 dígitos
     if (telefone.length > 11) {
         telefone = telefone.substring(0, 11);
     }
 
-    // Validação do número de dígitos
     if (telefone.length < 11) {
         erroTelefone.textContent = 'O telefone deve ter exatamente 11 dígitos.';
-        erroTelefone.style.display = 'block'; // Exibe a mensagem de erro
+        erroTelefone.style.display = 'block';
     } else {
-        erroTelefone.textContent = ''; // Limpa a mensagem de erro
-        erroTelefone.style.display = 'none'; // Oculta a mensagem de erro
+        erroTelefone.textContent = '';
+        erroTelefone.style.display = 'none';
     }
 
-    // Formatação automática do telefone
     let telefoneFormatado = telefone;
     telefoneFormatado = telefoneFormatado.replace(/^(\d{2})(\d)/, '($1) $2');
     telefoneFormatado = telefoneFormatado.replace(/(\d{5})(\d)/, '$1-$2');
     event.target.value = telefoneFormatado;
 });
 
-// Validação da data de nascimento
+/* ___________________________Validação da Data de Nascimento____________________________________________________________________*/
+
 document.getElementById('dataNascimento').addEventListener('change', function(event) {
     const dataNascimento = event.target.value;
-    const ano = dataNascimento.split('-')[0]; // Extrai o ano (formato YYYY-MM-DD)
-    const anoAtual = new Date().getFullYear(); // Obtém o ano atual
-    const erroDataNascimento = document.getElementById('erroDataNascimento'); // Elemento de erro
+    const ano = dataNascimento.split('-')[0];
+    const anoAtual = new Date().getFullYear();
+    const erroDataNascimento = document.getElementById('erroDataNascimento');
 
-    // Verifica se o ano tem exatamente 4 dígitos e está dentro do intervalo válido
-    if (ano.length !== 4 || ano < 1900 || ano > anoAtual) {
-        erroDataNascimento.textContent = 'Por favor, insira uma data de nascimento válida (ano entre 1900 e ' + anoAtual + ').';
-        erroDataNascimento.style.display = 'block'; // Exibe a mensagem de erro
+    if (ano.length !== 4 || ano < 1900 || ano > 2025) {
+        erroDataNascimento.textContent = 'Por favor, insira uma data de nascimento válida.';
+        erroDataNascimento.style.display = 'block';
     } else {
-        erroDataNascimento.textContent = ''; // Limpa a mensagem de erro
-        erroDataNascimento.style.display = 'none'; // Oculta a mensagem de erro
+        erroDataNascimento.textContent = '';
+        erroDataNascimento.style.display = 'none';
     }
+});
+/* ___________________________Adicionar Borda ao Campo Preenchido____________________________________________________________________*/
+function adicionarBordaPreenchido(input) {
+    if (input.value.trim() !== "") {
+        input.classList.add('campo-preenchido');
+    } else {
+        input.classList.remove('campo-preenchido');
+    }
+}
+
+// Aplicar a todos os campos de texto, data, CPF, telefone, etc.
+document.querySelectorAll('input[type="text"], input[type="date"], input[type="email"], input[type="tel"], select').forEach(input => {
+    input.addEventListener('input', function() {
+        adicionarBordaPreenchido(this);
+    });
+
+    // Verificar ao carregar a página se o campo já está preenchido
+    adicionarBordaPreenchido(input);
 });
