@@ -149,11 +149,23 @@ input[type="file"]:focus {
     width: auto;
     margin-left: 10px; 
 }
+.erro-mensagem {
+    color: #ff6f61; /* Cor vermelha para o erro */
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: none; /* Inicialmente oculto */
+}
 
 .checkbox-label span {
     color: #2a5298;
 }
-
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.success-message {
+    animation: fadeIn 0.5s ease-in-out;
+}
 @keyframes pulse {
     0% {
         transform: scale(1);
@@ -174,4 +186,20 @@ button[type="submit"] {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
     transform: translateY(-5px);
     transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+input:invalid {
+    border-color: #ff6f61;
+}
+.error-message {
+    color: #ff6f61;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+@media (max-width: 600px) {
+    .form-container {
+        padding: 15px;
+    }
+    input, select, button {
+        font-size: 14px;
+    }
 }
