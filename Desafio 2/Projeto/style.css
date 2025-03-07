@@ -9,6 +9,7 @@ html, body {
     overflow-y: auto;
 }
 
+
 /*___________________________Container do Formulário______________________________________________________________________*/
 .form-container {
     background-color: #fff;
@@ -31,6 +32,15 @@ html, body {
         transform: translateY(0);
     }
 }
+/*___________________________Imagens______________________________________________________________________*/
+
+.garoto{
+    width: 40%;
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
 
 /*___________________________Títulos e Textos______________________________________________________________________*/
 h1, h2 {
