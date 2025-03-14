@@ -15,7 +15,7 @@ document.getElementById('inscricaoForm').addEventListener('submit', function(eve
     const anoAtual = new Date().getFullYear();
 
     if (ano.length !== 4 || ano < 1900 || ano > anoAtual) {
-        showModal('Por favor, insira uma data de nascimento entre 1900 e ' + anoAtual + '.');
+        showModal('Por favor, insira uma data de nascimento válida');
         return;
     }
 
