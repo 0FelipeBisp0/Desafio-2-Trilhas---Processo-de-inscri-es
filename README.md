@@ -1,78 +1,145 @@
-# Desafio-2-Trilhas---Processo-de-inscri-es
-1. Objetivo do Sistema
-O objetivo do sistema de inscrição é permitir que usuários realizem seu cadastro de forma eficiente e segura, garantindo que todas as informações necessárias sejam coletadas corretamente. O sistema deve ser intuitivo, acessível e integrado a outras plataformas relacionadas, caso necessário.
+Documentação do Formulário de Inscrição do Programa de Formação SECTI + FAPEMA 
 
-2. Problema que Precisa Ser Resolvido
-Atualmente, o processo de inscrição pode apresentar desafios como:
-Formulários longos e confusos, que desmotivam os usuários.
-Falta de validação de dados, resultando em erros e retrabalho.
-Dificuldade de acompanhamento do status da inscrição.
-Falta de integração com sistemas externos para validação automática de informações.
-O sistema proposto busca solucionar essas questões, tornando o processo mais ágil e confiável.
+ 
 
-3. Público-Alvo e Perfil dos Usuários
-O sistema será utilizado por diferentes tipos de usuários, como:
+1. Objetivo do Projeto 
 
-3.1 Público-Alvo
-Estudantes e candidatos que desejam se inscrever em cursos, eventos ou programas.
-Empresas e instituições que gerenciam processos seletivos e inscrições.
-Administradores do sistema, responsáveis por validar e gerenciar as inscrições.
+O objetivo deste projeto é fornecer um formulário de inscrição estático para o Programa de Formação SECTI + FAPEMA. O formulário permite que candidatos insiram seus dados de forma organizada e estruturada, garantindo uma coleta eficiente das informações necessárias para o processo seletivo. 
 
-3.2 Perfil dos Usuários
-Usuários finais: Pessoas com diferentes níveis de familiaridade com tecnologia, exigindo um sistema intuitivo.
-Organizadores: Precisam de ferramentas para gerenciar inscrições em larga escala.
-Equipe de suporte: Necessitam de acesso a informações para auxiliar usuários em dificuldades.
+2. Problema Resolvido 
 
-4. Principais Funcionalidades Necessárias
-O sistema deve incluir os seguintes recursos:
+O projeto visa solucionar desafios comuns encontrados em processos de inscrição, como: 
 
-1. Cadastro e autenticação:
-Cadastro via e-mail ou redes sociais.
-Login seguro com autenticação em duas etapas (opcional).
+Falta de padronização nos dados enviados pelos candidatos. 
 
-2. Formulário de inscrição:
-Campos personalizados conforme o tipo de inscrição.
-Upload de documentos quando necessário.
-Validação automática de dados (exemplo: CPF, e-mail).
+Dificuldade na validação de informações inseridas manualmente. 
 
-3. Gerenciamento do processo de inscrição:
-Edição de informações antes do envio final.
-Acompanhamento do status da inscrição.
-Notificações automáticas via e-mail ou SMS.
+Necessidade de um ambiente simples e acessível para preenchimento dos dados. 
 
-4. Área administrativa:
-Painel para análise e aprovação de inscrições.
-Geração de relatórios e exportação de dados.
+3. Público-alvo e Perfil dos Usuários 
 
-5. Segurança e privacidade:
-Proteção de dados conforme a LGPD (Lei Geral de Proteção de Dados).
-Armazenamento seguro das informações.
+O formulário é destinado a jovens a partir de 16 anos, residentes no Maranhão, que estejam cursando ou tenham concluído o ensino médio e desejam se inscrever no Programa de Formação SECTI + FAPEMA. Os candidatos possuem diferentes níveis de familiaridade com tecnologia, tornando essencial um sistema intuitivo e de fácil uso. 
 
-5. Fluxo Lógico/Sequencial de Inscrição
-1. Acesso à plataforma
-O usuário acessa o sistema via navegador ou aplicativo.
+ 
 
-2. Cadastro/Login
-Usuário novo: Preenche um formulário básico e cria uma conta.
-Usuário existente: Faz login com e-mail/senha ou redes sociais.
+ 
 
-3. Preenchimento do formulário de inscrição
-Usuário seleciona o tipo de inscrição desejada.
-Preenche os dados obrigatórios e anexa documentos, se necessário.
-O sistema valida automaticamente os campos preenchidos.
+4. Tecnologias Utilizadas 
 
-4. Revisão e envio
-Usuário revisa todas as informações.
-Caso precise corrigir algo, pode editar antes do envio final.
+HTML5 - Estrutura do formulário. 
 
-5. Confirmação e acompanhamento
-Após o envio, o usuário recebe um e-mail de confirmação.
-Pode acessar o sistema para acompanhar o status da inscrição.
+CSS3 - Estilização e responsividade. 
 
-6. Análise e aprovação
-Os administradores analisam as inscrições.
-Em caso de pendências, o usuário recebe uma notificação para ajustes.
+JavaScript - Validação de dados e formatação de entrada. 
 
-7. Resultado final
-O usuário é informado sobre a aprovação ou rejeição da inscrição.
-Caso aprovado, pode receber orientações sobre os próximos passos.
+GitHub - Controle de versão e hospedagem do código. 
+
+Vercel - Hospedagem do formulário e integração contínua. 
+
+ 
+
+5. Principais Funcionalidades 
+
+O formulário conta com os seguintes elementos: 
+
+Campos de Entrada: Nome completo, e-mail, telefone, CPF, endereço e trilha de interesse. 
+
+Validação com JavaScript:  
+
+Verificação de campos obrigatórios. 
+
+Validação de formato correto para e-mail, CPF e CEP. 
+
+Formatação automática do número de telefone. 
+
+Restrição geográfica: O formulário não permite o envio de inscrições de pessoas que não residem no Maranhão. Isso é validado por meio de um campo obrigatório de endereço completo. Caso o usuário informe um endereço fora do Maranhão, o formulário exibirá uma mensagem informando que a inscrição está restrita aos residentes do estado. 
+
+Feedback Visual: Destaca erros nos campos incorretos. 
+
+Botão de Envio: Envia os dados preenchidos e exibe uma página de sucesso mostrando que o formulário foi enviado 
+
+ 
+
+6. Fluxo de Inscrição 
+
+O processo de inscrição visa garantir que candidatos interessados possam se registrar para o Programa de Formação SECTI + FAPEMA de maneira organizada e eficiente. 
+
+6.1. Etapas do Processo 
+
+6.1.1. Acesso ao Sistema 
+
+O candidato acessa a página do Programa de Formação SECTI + FAPEMA. 
+
+Um botão "Inscreva-se" leva ao formulário de inscrição. 
+
+6.1.2. Cadastro do Usuário 
+
+O candidato deve fornecer as seguintes informações: 
+
+Informações Pessoais 
+
+Nome completo 
+
+Data de nascimento 
+
+CPF 
+
+E-mail 
+
+Telefone de contato 
+
+Foto do documento de identidade 
+
+ 
+
+Informações Residenciais 
+
+CEP 
+
+Rua 
+
+Número 
+
+Cidade 
+
+Estado 
+
+Foto do comprovante de residência 
+
+ 
+
+O sistema: 
+
+Valida automaticamente os campos obrigatórios (formato de CPF, Telefone e CEP). 
+
+Exibe mensagens de erro caso os dados estejam incorretos. 
+
+6.1.3. Revisão e Confirmação 
+
+O candidato revisa todas as informações antes de confirmar a inscrição. 
+
+O sistema impede o envio caso haja campos obrigatórios não preenchidos ou preenchidos de maneira incorreta. 
+
+7. Aprendizados e Desafios 
+
+Durante o desenvolvimento, enfrentamos desafios como: 
+
+Criação de um layout responsivo, garantindo uma boa experiência em dispositivos móveis. 
+
+Implementação de validações eficientes para evitar erros no envio dos dados. 
+
+Formatar corretamente informações como CPF, telefone etc., garantindo que os dados estejam no padrão esperado. 
+
+Esses desafios foram superados por meio de pesquisa, aplicação de boas práticas de desenvolvimento front-end e aprendizado com as aulas da Alura. 
+
+8. Possíveis Melhorias Futuras 
+
+Implementação de Back-End: 
+ Uma possível melhoria seria a implementação de um back-end para o armazenamento dos dados enviados. Utilizando MySQL, a aplicação poderia persistir as informações dos candidatos de maneira mais robusta. Linguagens como C# ou Java poderiam ser empregadas para desenvolver uma API que interaja com o banco de dados, proporcionando maior controle e segurança dos dados. 
+
+Envio de Confirmação por E-mail: 
+ Outra possível melhoria seria implementar o envio de um e-mail de confirmação após a inscrição, garantindo que o candidato receba um retorno imediato sobre a sua inscrição. Essa funcionalidade poderia ser integrada com um serviço de e-mail, como SMTP ou APIs especializadas. 
+
+9. Considerações Finais 
+
+Este projeto representa um passo importante na padronização e organização do processo de inscrição para o Programa de Formação SECTI + FAPEMA. Com uma abordagem centrada no usuário e utilizando boas práticas de desenvolvimento, conseguimos criar um sistema funcional e acessível. No futuro, melhorias como a integração com um back-end e automação de comunicação com os candidatos podem tornar o processo ainda mais eficiente. 
