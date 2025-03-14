@@ -1,56 +1,67 @@
 /* ___________________________Validação do Formulário______________________________________________________________________*/
+
 document.getElementById('inscricaoForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
+    // Verificação da trilha selecionada
     const trilhaSelecionada = document.querySelector('input[name="trilha"]:checked');
-    const erroTrilha = document.getElementById('erroTrilha');
-
     if (!trilhaSelecionada) {
-        erroTrilha.textContent = 'Por favor, escolha uma trilha.';
-        erroTrilha.style.display = 'block';
-        return; 
-    } else {
-        erroTrilha.textContent = '';
-        erroTrilha.style.display = 'none';
+        showModal('Por favor, escolha uma trilha.');
+        return; // Impede o envio do formulário
+    }
+    // Verificação da data de nascimento
+    const dataNascimento = document.getElementById('dataNascimento').value;
+    const ano = dataNascimento.split('-')[0];
+    const anoAtual = new Date().getFullYear();
+
+    if (ano.length !== 4 || ano < 1900 || ano > anoAtual) {
+        showModal('Por favor, insira uma data de nascimento entre 1900 e ' + anoAtual + '.');
+        return;
     }
 
-    const dataNascimento = new Date(document.getElementById('dataNascimento').value);
+    // Verificação da idade (16 anos ou mais)
     const hoje = new Date();
-    let idade = hoje.getFullYear() - dataNascimento.getFullYear();
-    const mes = hoje.getMonth() - dataNascimento.getMonth();
-    if (mes < 0 || (mes === 0 && hoje.getDate() < dataNascimento.getDate())) {
+    const dataNasc = new Date(dataNascimento);
+    let idade = hoje.getFullYear() - dataNasc.getFullYear();
+    const mes = hoje.getMonth() - dataNasc.getMonth();
+    if (mes < 0 || (mes === 0 && hoje.getDate() < dataNasc.getDate())) {
         idade--;
     }
 
     if (idade < 16) {
-        alert('Você deve ter mais de 16 anos para se inscrever.');
+        showModal('Você deve ter mais de 16 anos para se inscrever.');
         return;
     }
 
-    const estado = document.getElementById('estado').value;
-    if (estado !== 'MA') {
-        alert('Apenas residentes do Maranhão podem se inscrever.');
-        return;
-    }
-
+    // Verificação do CPF
     const cpf = document.getElementById('cpf').value.replace(/\D/g, '');
     if (cpf.length !== 11) {
-        alert('O CPF deve ter exatamente 11 dígitos.');
+        showModal('O CPF deve ter exatamente 11 dígitos.');
         return;
     }
 
-    const cep = document.getElementById('cep').value.replace(/\D/g, '');
-    if (cep.length !== 8) {
-        alert('O CEP deve ter exatamente 8 dígitos.');
-        return;
-    }
-
+    // Verificação do telefone
     const telefone = document.getElementById('telefone').value.replace(/\D/g, '');
     if (telefone.length !== 11) {
-        alert('O telefone deve ter exatamente 11 dígitos.');
+        showModal('O telefone deve ter exatamente 11 dígitos.');
         return;
     }
 
+    // Verificação do CEP
+    const cep = document.getElementById('cep').value.replace(/\D/g, '');
+    if (cep.length !== 8) {
+        showModal('O CEP deve ter exatamente 8 dígitos.');
+        return;
+    }
+
+    // Verificação do estado
+    const estado = document.getElementById('estado').value;
+    if (estado !== 'MA') {
+        showModal('Apenas residentes do Maranhão podem se inscrever.');
+        return;
+    }
+
+    // Se todas as validações passarem, o formulário pode ser enviado
     window.location.href = 'success.html';
 });
 
@@ -58,6 +69,12 @@ document.getElementById('inscricaoForm').addEventListener('submit', function(eve
 document.getElementById('cancelar').addEventListener('click', function() {
     document.getElementById('inscricaoForm').reset();
 });
+
+/* ___________________________Botão de Voltar____________________________________________________________________*/
+document.getElementById('voltar').addEventListener('click', function() {
+    window.location.href = 'index.html';
+});
+
 
 /* ___________________________Formatação Automática do CPF______________________________________________________________________*/
 document.getElementById('cpf').addEventListener('input', function(event) {
@@ -153,6 +170,7 @@ document.getElementById('dataNascimento').addEventListener('change', function(ev
     if (ano.length !== 4 || ano < 1900 || ano > 2025) {
         erroDataNascimento.textContent = 'Por favor, insira uma data de nascimento válida.';
         erroDataNascimento.style.display = 'block';
+        return;
     } else {
         erroDataNascimento.textContent = '';
         erroDataNascimento.style.display = 'none';
@@ -175,3 +193,29 @@ document.querySelectorAll('input[type="text"], input[type="date"], input[type="e
 
     adicionarBordaPreenchido(input);
 });
+
+
+/* ___________________________Modal____________________________________________________________________*/
+
+function showModal(message) {
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalMessage = document.getElementById('modal-message');
+
+    modalTitle.textContent = 'Opa! Calma aí...';
+    modalMessage.textContent = message;
+
+    modal.style.display = 'flex';
+
+    document.getElementById('modal-ok').addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+    document.getElementById('close-modal').addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+}
