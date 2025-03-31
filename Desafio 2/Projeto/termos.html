@@ -13,6 +13,11 @@
             padding: 0;
             background-color: #f4f4f4;
             color: #333;
+            transition: background-color 0.5s, color 0.5s;
+        }
+        body.dark-mode {
+            background-color: #333;
+            color: #fff;
         }
         .container {
             max-width: 800px;
@@ -21,9 +26,16 @@
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.5s;
+        }
+        body.dark-mode .container {
+            background-color: #444;
         }
         h1, h2 {
             color: #2a5298;
+        }
+        body.dark-mode h1, body.dark-mode h2 {
+            color: #fff;
         }
         h1 {
             text-align: center;
@@ -48,6 +60,20 @@
             margin-top: 20px;
         }
         .btn-voltar:hover {
+            background-color: #1e3c72;
+        }
+        #toggleBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #2a5298;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #toggleBtn:hover {
             background-color: #1e3c72;
         }
     </style>
@@ -86,5 +112,6 @@
 
         <a href="index.html" class="btn-voltar">Voltar ao Formulário</a>
     </div>
+    <script src="modo-escuro.js"></script>
 </body>
 </html>

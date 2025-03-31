@@ -219,3 +219,37 @@ function showModal(message) {
         }
     });
 }
+
+/* ___________________________Botão modo escuro____________________________________________________________________*/
+
+// Criação do botão dinamicamente
+window.onload = function() {
+    // Criando o botão
+    const button = document.createElement('button');
+    button.innerHTML = '🌙';
+    button.id = 'openModalBtn';
+    document.body.appendChild(button);
+  
+    // Estilos do botão (já definidos no CSS acima)
+
+    // Verifica se o modo escuro está ativado nas preferências do usuário
+    if (localStorage.getItem('darkMode') === 'ativado') {
+        document.body.classList.add('dark-mode');
+        button.innerHTML = '🌞';
+    }
+
+    // Alterna o modo escuro
+    button.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        
+        // Salva a preferência do usuário
+        if (document.body.classList.contains('dark-mode')) {
+            localStorage.setItem('darkMode', 'ativado');
+            button.innerHTML = '🌞';
+        } else {
+            localStorage.setItem('darkMode', 'desativado');
+            button.innerHTML = '🌙';
+        }
+    });
+};
+
