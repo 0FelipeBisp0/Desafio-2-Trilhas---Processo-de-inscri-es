@@ -1,0 +1,193 @@
+/* Estilos normais */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    font-family: Arial, sans-serif;
+    color: #fff;
+    transition: background-color 0.5s ease, color 0.5s ease; /* Transição suave para o fundo e a cor */
+}
+
+/* Estilos para o modo escuro */
+body.dark-mode {
+    background: linear-gradient(135deg, #000 0%, #333 100%); /* Mudança para o gradiente escuro */
+    color: #fff;
+}
+
+/* Alterações quando o body está no modo escuro */
+body.dark-mode .welcome-content {
+    background-color: rgba(255, 255, 255, 0.345); /* Fundo alterado para semi-transparente no modo escuro */
+}
+
+body.dark-mode .letra-cor {
+    color: #fff; /* Muda a cor da letra para branca no modo escuro */
+}
+
+/* Estilo do botão para alternar o modo */
+#openModalBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #ff6f61;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transição suave para a cor do botão */
+}
+
+body.dark-mode #openModalBtn {
+    background-color: #444;
+    color: white;
+}
+
+/* Estilos para os containers e animações */
+.welcome-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.welcome-content {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    text-align: center;
+    animation: slideIn 0.5s ease-out;
+}
+
+.welcome-content h1 {
+    color: #2a5298;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.welcome-content p {
+    color: #333;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.letra-cor {
+    color: #333; /* Cor inicial das letras */
+}
+
+.btn {
+    display: table-column;
+    padding: 12px 24px;
+    background-color: #ff6f61;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ff4a3d;
+    transform: translateY(-2px);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 800px) {
+    .welcome-content {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 7.5px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        max-width: 250px;
+        text-align: center;
+        animation: slideIn 0.5s ease-out;
+    }
+
+    .welcome-content h1 {
+        color: #2a5298;
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+
+    .welcome-content p {
+        color: #333;
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+
+    .garoto {
+        display: flex;
+        width: 45%;
+        display: block;
+        left: auto;
+    }
+}
+
+/* Outros estilos */
+.success-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.success-content {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    text-align: center;
+    animation: slideIn 0.5s ease-out;
+}
+
+.success-content h1 {
+    color: #2a5298;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.success-content p {
+    color: #333;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    padding: 12px 24px;
+    background-color: #ff6f61;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ff4a3d;
+    transform: translateY(-2px);
+}
