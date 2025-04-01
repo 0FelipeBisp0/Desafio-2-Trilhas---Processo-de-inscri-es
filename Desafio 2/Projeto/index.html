@@ -5,19 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bem-vindo ao Programa Trilhas</title>
     <link rel="stylesheet" href="inicio-final.css">
-
+    <script>
+        function exibirLogin() {
+            document.getElementById('login-container').style.display = 'block';
+            document.getElementById('inscricao-container').style.display = 'none';
+        }
+        function exibirInscricao() {
+            document.getElementById('inscricao-container').style.display = 'block';
+            document.getElementById('login-container').style.display = 'none';
+        }
+    </script>
 </head>
 <body>
     <div class="inicio-fim-container">
         <div class="inicio-fim-content">
             <h1>🎉 Bem-vindo ao Programa Trilhas!</h1>
             <p class="letra-cor">Estamos muito felizes por você estar interessado em se inscrever. Clique no botão abaixo para fazer sua inscrição.</p>
-            <a href="inscricao.html" class="btn">Login</a>
-            <a href="inscricao.html" class="btn">Inscreva-se Agora</a>
+            <a href="#" class="btn" onclick="exibirLogin()">Login</a>
+            <a href="#" class="btn" onclick="exibirInscricao()">Inscreva-se Agora</a>
         </div>
         <img src="imagens/garotoNote.png" alt="garoto" class="garoto">
+    </div>
+
+    <div id="login-container" class="login-container" style="display: none;">
+        <h2>Login</h2>
+        <form action="processa_login.php" method="POST">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+            
+            <button type="submit" class="btn">Entrar</button>
+        </form>
+        <p>Não tem uma conta? <a href="#" onclick="exibirInscricao()">Inscreva-se aqui</a></p>
+    </div>
+
+    <div id="inscricao-container" class="inscricao-container" style="display: none;">
+        <h2>Formulário de Inscrição</h2>
+        <form action="processa_inscricao.php" method="POST">
+            <label for="nome">Nome Completo:</label>
+            <input type="text" id="nome" name="nome" required>
+            
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" required>
+            
+            <label for="curso">Curso de Interesse:</label>
+            <select id="curso" name="curso" required>
+                <option value="">Selecione um curso</option>
+                <option value="programacao">Programação de jogos</option>
+                <option value="design">Backand</option>
+                <option value="marketing">Frontend</option>
+            </select>
+            
+            <button type="submit" class="btn">Enviar Inscrição</button>
+        </form>
     </div>
 </body>
 <script src="modo-escuro.js"></script>
 </html>
-
