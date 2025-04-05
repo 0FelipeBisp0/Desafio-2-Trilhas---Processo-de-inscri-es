@@ -1,22 +1,89 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bem-vindo ao Programa Trilhas</title>
-    <link rel="stylesheet" href="inicio-final.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bem-vindo ao Programa Trilhas</title>
+  <link rel="stylesheet" href="inicio-final.css" />
 </head>
 <body>
-    <div class="welcome-container">
-        <div class="welcome-content">
-            <h1>🎉 Bem-vindo ao Programa Trilhas!</h1>
-            <p>Estamos muito felizes por você estar interessado em se inscrever. Clique no botão abaixo para fazer sua inscrição.</p>
-            <a href="inscricao.html" class="btn">Login</a>
-            <a href="inscricao.html" class="btn">Inscreva-se Agora</a>
-        </div>
-        <img src="imagens/garotoNote.png" alt="garoto" class="garoto">
+  <div class="inicio-fim-container">
+    <div class="inicio-fim-content">
+      <h1>🎉 Bem-vindo ao Programa Trilhas!</h1>
+      <p class="letra-cor">Estamos muito felizes por você estar interessado em se inscrever. Clique no botão abaixo para fazer sua inscrição.</p>
+      <a href="#" class="btn" id="openLoginModal">Login</a>
+      <a href="inscricao.html" class="btn">Inscreva-se Agora</a>
     </div>
+    <img src="imagens/garotoNote.png" alt="garoto" class="garoto" />
+  </div>
+
+  <!-- Modal de Login -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h1>Login</h1>
+      <form id="loginForm">
+        <label for="loginEmail" class="letra-cor">E-mail:</label>
+        <input type="email" id="loginEmail" required />
+
+        <label for="loginSenha" class="letra-cor">Senha:</label>
+        <input type="password" id="loginSenha" required />
+
+        <button type="submit" class="btn">Entrar</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="overlay" class="overlay"></div>
+
+  <!-- Scripts -->
+  <script>
+    const modal = document.getElementById("loginModal");
+    const btn = document.getElementById("openLoginModal");
+    const closeBtn = document.querySelector(".modal .close");
+    const overlay = document.getElementById("overlay");
+
+    btn.onclick = () => {
+      modal.style.display = "block";
+      overlay.style.display = "block";
+
+      // animação ao abrir
+      const modalContent = modal.querySelector('.modal-content');
+      modalContent.classList.remove('aparecer');
+      void modalContent.offsetWidth;
+      modalContent.classList.add('aparecer');
+    }
+
+    closeBtn.onclick = () => {
+      modal.style.display = "none";
+      overlay.style.display = "none";
+    }
+
+    overlay.onclick = () => {
+      modal.style.display = "none";
+      overlay.style.display = "none";
+    }
+
+    document.getElementById("loginForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const email = document.getElementById("loginEmail").value;
+  const senha = document.getElementById("loginSenha").value;
+
+  const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+  const usuarioLogado = usuarios.find(u => u.email === email && u.senha === senha);
+
+  if (usuarioLogado) {
+    localStorage.setItem("usuarioLogado", JSON.stringify(usuarioLogado));
+    window.location.href = "perfil.html";
+  } else {
+    alert("E-mail ou senha incorretos.");
+  }
+});
+
+  </script>
+
+  <script src="modo-escuro.js"></script>
 </body>
 </html>
-

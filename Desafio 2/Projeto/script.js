@@ -60,21 +60,25 @@ document.getElementById('inscricaoForm').addEventListener('submit', function(eve
         showModal('Apenas residentes do Maranhão podem se inscrever.');
         return;
     }
+    // Se todas as validações passarem, salva o usuário
+    if (!salvarUsuarioNoLocalStorage()) {
+    return;
+}
 
     // Se todas as validações passarem, o formulário pode ser enviado
     window.location.href = 'success.html';
 });
 
-/* ___________________________Botão de Cancelar____________________________________________________________________*/
-document.getElementById('cancelar').addEventListener('click', function() {
-    document.getElementById('inscricaoForm').reset();
-});
 
 /* ___________________________Botão de Voltar____________________________________________________________________*/
 document.getElementById('voltar').addEventListener('click', function() {
     window.location.href = 'index.html';
 });
 
+/* ___________________________Botão de Cancelar*/
+document.getElementById('cancelar').addEventListener('click', function () {
+    window.location.href = 'https://www.google.com';
+  });
 
 /* ___________________________Formatação Automática do CPF______________________________________________________________________*/
 document.getElementById('cpf').addEventListener('input', function(event) {
@@ -219,3 +223,59 @@ function showModal(message) {
         }
     });
 }
+
+/* ___________________________Botão modo escuro____________________________________________________________________*/
+
+window.onload = function() {
+    const button = document.createElement('button');
+    button.innerHTML = '🌙';
+    button.id = 'openModalBtn';
+    document.body.appendChild(button);
+    if (localStorage.getItem('darkMode') === 'ativado') {
+        document.body.classList.add('dark-mode');
+        button.innerHTML = '🌞';
+    }
+
+    button.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        
+        if (document.body.classList.contains('dark-mode')) {
+            localStorage.setItem('darkMode', 'ativado');
+            button.innerHTML = '🌞';
+        } else {
+            localStorage.setItem('darkMode', 'desativado');
+            button.innerHTML = '🌙';
+        }
+    });
+};
+
+/* ___________________________Salvar Email e Senha no localStorage_______________________________________________________*/
+
+function salvarUsuarioNoLocalStorage() {
+    const email = document.getElementById('email').value;
+    const senha = document.getElementById('senha').value;
+    const nome = document.getElementById('nome').value; 
+    const trilha = document.querySelector('input[name="trilha"]:checked').value; 
+
+    const usuario = {
+        email: email,
+        senha: senha,
+        nome: nome,
+        trilha: trilha
+    };
+
+    let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+    const emailExistente = usuarios.find(u => u.email === email);
+    if (emailExistente) {
+        showModal('Este e-mail já está cadastrado.');
+        return false;
+    }
+
+    usuarios.push(usuario);
+    localStorage.setItem('usuarios', JSON.stringify(usuarios));
+    localStorage.setItem('usuarioLogado', JSON.stringify(usuario));
+
+    return true;
+}
+

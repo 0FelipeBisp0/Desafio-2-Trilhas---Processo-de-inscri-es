@@ -2,28 +2,71 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    display: flexbox;
+    display: flex;
     justify-content: center;
     align-items: center;
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     font-family: Arial, sans-serif;
     color: #fff;
+    transition: background-color 0.5s ease, color 0.5s ease; 
 }
 
+body.dark-mode {
+    background: linear-gradient(135deg, #000 0%, #333 100%); 
+        color: #fff;
+}
 
-/* ___________________________Pagina inicial______________________________________________________________________*/
+body.dark-mode .inicio-fim-content,
+body.dark-mode .modal-content {
+    background-color: rgb(137, 137, 137);
+}
 
+body.dark-mode .letra-cor {
+    color: #000000; 
+}
 
-.welcome-container {
+body.dark-mode h1 {
+    color: #ffffff; 
+}
+
+#openModalBtn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #ff6f61;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+    width: auto; 
+    max-width: 150px; 
+    text-align: center;
+}
+
+body.dark-mode #openModalBtn {
+    background-color: #444444;
+    color: white;
+}
+
+#openModalBtn:hover {
+    background-color: #ff4a3d;
+    transform: translateY(-2px);
+}
+
+.inicio-fim-container {
     display: flex;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
     height: 100vh;
     width: 100%;
 }
 
-.welcome-content {
-    background-color: rgba(255, 255, 255, 0.9);
+.inicio-fim-content{
+    background-color: #ffffff;
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -32,16 +75,20 @@ body {
     animation: slideIn 0.5s ease-out;
 }
 
-.welcome-content h1 {
+.inicio-fim-content h1 {
     color: #2a5298;
     font-size: 2.5rem;
     margin-bottom: 20px;
 }
 
-.welcome-content p {
+.inicio-fim-content p {
     color: #333;
     font-size: 1.2rem;
     margin-bottom: 20px;
+}
+
+.letra-cor {
+    color: #3a3a3a;
 }
 
 .btn {
@@ -66,88 +113,89 @@ body {
         opacity: 0;
         transform: translateY(-50px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
-/*___________________________Imagens______________________________________________________________________*/
+/*___________________________Modal de Login______________________________________________________________________*/
 
-.garoto{
-    display: flex;
-    width: 25%;
-    display: block; 
-    left: auto; 
-}
-/* ___________________________Responsividade______________________________________________________________________*/
-@media (max-width: 800px) {
-  
-.welcome-content {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 7.5px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    max-width: 250px;
-    text-align: center;
-    animation: slideIn 0.5s ease-out;
-}
-
-.welcome-content h1 {
-    color: #2a5298;
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.welcome-content p {
-    color: #333;
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-.garoto{
-    display: flex;
-    width: 45%;
-    display: block; 
-    left: auto; 
-}
-
-}
-
-
-
-/* ___________________________Pagina final______________________________________________________________________*/
-
-
-.success-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100vw;
     height: 100vh;
-    width: 100%;
-}
-
-.success-content {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    max-width: 500px;
-    text-align: center;
-    animation: slideIn 0.5s ease-out;
-}
-
-.success-content h1 {
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+  }
+  
+  .modal-content {
+    background-color: #fff;
     color: #2a5298;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
+    margin: 10% auto;
+    padding: 40px;
+    border-radius: 10px;
+    width: 300px;
+    position: relative;
+  }
+  
+  .modal-content h2 {
+    margin-top: 0;
+    color: #2e86de;
 
-.success-content p {
-    color: #333;
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
+  }
+  .modal-content label {
+    color: #555;
+  }
+  
+  .modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  
+  .modal-content .btn {
+    width: 100%;
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .overlay {
+    display: none;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+  }
+/* Animação do modal */
+@keyframes aparecer {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .modal-content.aparecer {
+    animation: aparecer 0.4s ease-out;
+  }
+  
+  
 .btn {
     display: flex;
     flex-direction: column;
@@ -167,15 +215,37 @@ body {
     transform: translateY(-2px);
 }
 
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-50px);
+
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .inicio-fim-content {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 7.5px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        max-width: 550px;
+        text-align: center;
+        animation: slideIn 0.5s ease-out;
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .inicio-fim-content h1 {
+        color: #2a5298;
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+
+    .inicio-fim-content p {
+        color: #333;
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+
+    .garoto {
+        display: flex;
+        width: 45%;
+        display: block;
+        left: auto;
     }
 }
 

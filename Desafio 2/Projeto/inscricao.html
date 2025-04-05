@@ -9,12 +9,12 @@
 <body>
     <div class="form-container">
         <h1>Formulário de Inscrição</h1>
-        <button type="button" id="voltar">◀️ Voltar</button>
         <form id="inscricaoForm">
 <!-- ___________________________Informações do Participante________________________________________________________________-->            
         <h2>Informações do Participante</h2>
         <label for="nome">👤 Nome completo:</label>
-        <input type="text" id="nome" name="nome" required>
+        <input type="text" id="nome" name="nome" required pattern="^[A-Za-zÀ-ÿ\s]+$" title="Digite apenas letras.">
+        
 
         <label for="dataNascimento">🎂 Data de nascimento:</label>
         <input type="date" id="dataNascimento" name="dataNascimento" required>
@@ -33,6 +33,11 @@
 
         <label for="email">📧 E-mail:</label>
         <input type="email" id="email" name="email" required>
+
+        <label for="senha">🔒 Crie uma senha:</label>
+        <input type="password" id="senha" name="senha" required minlength="6">
+        <div id="erroSenha" class="erro-mensagem"></div>
+
 
         <label for="telefone">📞 Telefone:</label>
         <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" required>
@@ -151,6 +156,7 @@
 <!-- ___________________________Botões de Envio, Cancelar e Cancelar___________________________________________________________________________-->            
         <button type="submit">✅ Fazer Inscrição</button>
         <button type="button" id="cancelar">❌ Cancelar</button>
+        <button type="button" id="voltar">◀️ Voltar</button>
         </form>
     </div>
  <!-- ___________________________Modal de Erro___________________________________________________________________________-->            
@@ -167,5 +173,6 @@
 <div id="overlay" class="overlay"> </div>
 
     <script src="script.js"></script>
+    <script src="modo-escuro.js"></script>
 </body>
 </html>

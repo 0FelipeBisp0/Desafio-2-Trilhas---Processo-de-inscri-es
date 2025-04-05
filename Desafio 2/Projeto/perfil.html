@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Perfil do Usuário</title>
+  <link rel="stylesheet" href="inicio-final.css" />
+</head>
+<body>
+  <div class="inicio-fim-container">
+    <div class="inicio-fim-content">
+      <h1>👤 Olá, <span id="nomeUsuario"></span>!</h1>
+      <p class="letra-cor"><strong>Email:</strong> <span id="emailUsuario"></span></p>
+      <p class="letra-cor"><strong>Trilha Escolhida:</strong> <span id="trilhaUsuario"></span></p>
+
+      <a href="#" class="btn" id="logoutBtn">Sair</a>
+    </div>
+    <img src="imagens/garotoNote.png" alt="garoto" class="garoto" />
+  </div>
+
+  <script>
+    const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+
+    if (!usuario) {
+      // Redireciona se não estiver logado
+      window.location.href = "index.html";
+    } else {
+      document.getElementById("nomeUsuario").textContent = usuario.nome;
+      document.getElementById("emailUsuario").textContent = usuario.email;
+      document.getElementById("trilhaUsuario").textContent = usuario.trilha || "Não informado";
+    }
+
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      localStorage.removeItem("usuarioLogado");
+      window.location.href = "index.html";
+    });
+  </script>
+
+  <!-- Aqui está a inclusão do modo escuro -->
+  <script src="modo-escuro.js"></script>
+</body>
+</html>
