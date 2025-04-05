@@ -111,7 +111,7 @@ body.dark-mode #openModalBtn {
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    width: 100%;
+    width: 80%;
     max-width: 1150px;
     margin: 20px auto;
     animation: slideIn 0.5s ease-out;
@@ -347,7 +347,7 @@ button[type="submit"] {
   
 /*___________________________Responsividade______________________________________________________________________*/
 
-@media (max-width: 850px) {
+@media (max-width: 950px) {
     .form-container {
         padding: 15px;
     }
@@ -359,7 +359,7 @@ button[type="submit"] {
         padding: 30px;
         border-radius: 15px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        width: 100%;
+        width: 70%;
         max-width: 500px;
         margin: 20px auto;
         animation: slideIn 0.5s ease-out;

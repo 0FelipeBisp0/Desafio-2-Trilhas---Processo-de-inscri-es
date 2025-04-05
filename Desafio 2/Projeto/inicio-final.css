@@ -218,7 +218,7 @@ body.dark-mode #openModalBtn {
 
 
 /* Responsividade */
-@media (max-width: 900px) {
+@media (max-width: 950px) {
     .inicio-fim-content {
         background-color: rgba(255, 255, 255, 0.9);
         padding: 20px;
@@ -242,10 +242,7 @@ body.dark-mode #openModalBtn {
     }
 
     .garoto {
-        display: flex;
-        width: 45%;
-        display: block;
-        left: auto;
+        width: 0%;
     }
 }
 
