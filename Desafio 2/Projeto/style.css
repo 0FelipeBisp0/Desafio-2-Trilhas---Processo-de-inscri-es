@@ -321,7 +321,8 @@ button[type="submit"] {
     padding: 20px;
     margin: 15% auto;
     width: 80%;
-    max-width: 600px;
+    max-width: 400px;
+    height: 180px;
 }
 
 @keyframes fadeInModal {
@@ -359,10 +360,14 @@ button[type="submit"] {
         padding: 30px;
         border-radius: 15px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        width: 70%;
-        max-width: 500px;
+        width: 80%;
+        max-width: 750px;
         margin: 20px auto;
         animation: slideIn 0.5s ease-out;
+    }
+    .modal-content {
+        width: 50%;
+        height: 180px;
     }
 }
 
