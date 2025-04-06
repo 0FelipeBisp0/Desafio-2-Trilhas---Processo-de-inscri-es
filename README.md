@@ -9,8 +9,8 @@ Pré-requisitos
 Antes de rodar o projeto localmente, você precisa ter as seguintes ferramentas instaladas:
 
 º Git
+
 º Visual Studio Code ou qualquer editor de sua preferência
-º Node.js (opcional para desenvolvimentos futuros)
 
 Passos para rodar o projeto:
 
