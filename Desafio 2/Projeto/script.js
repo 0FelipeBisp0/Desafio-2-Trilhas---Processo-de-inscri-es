@@ -102,6 +102,31 @@ document.getElementById('cpf').addEventListener('input', function(event) {
     event.target.value = cpf;
 });
 
+
+/* ___________________________Formatação Nome_______________________________________________________*/
+document.getElementById('nome').addEventListener('input', function(event) {
+    let nome = event.target.value.replace(/[^A-Za-zÀ-ÿ\s]/g, ''); // Remove tudo que não for letra ou espaço
+    const erroNome = document.getElementById('erroNome');
+
+    // Se houver qualquer número no valor do nome
+    if (/\d/.test(event.target.value)) {
+        erroNome.textContent = 'O nome não pode conter números.';
+        erroNome.style.display = 'block';
+    } else {
+        erroNome.textContent = '';
+        erroNome.style.display = 'none';
+    }
+    nome = nome.replace(/\b\w/g, function(letra) {
+        return letra.toUpperCase();
+    });
+
+    event.target.value = nome; // Atualiza o campo para refletir a mudança
+});
+
+
+
+
+
 /* ___________________________Formatação Automática do CEP___________________________________________________________________*/
 document.getElementById('cep').addEventListener('input', function(event) {
     let cep = event.target.value.replace(/\D/g, '');

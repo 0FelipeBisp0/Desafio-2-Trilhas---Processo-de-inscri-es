@@ -13,11 +13,11 @@
 <!-- ___________________________Informações do Participante________________________________________________________________-->            
         <h2>Informações do Participante</h2>
         <label for="nome">👤 Nome completo:</label>
-        <input type="text" id="nome" name="nome" required pattern="^[A-Za-zÀ-ÿ\s]+$" title="Digite apenas letras.">
-        
+        <input type="text" id="nome" name="nome" required>
+        <div id="erroNome" class="erro-mensagem"></div>
 
         <label for="dataNascimento">🎂 Data de nascimento:</label>
-        <input type="date" id="dataNascimento" name="dataNascimento" required onfocus="this.showPicker && this.showPicker()">
+        <input type="date" id="dataNascimento" name="dataNascimento" required>
         <div id="erroDataNascimento" class="erro-mensagem"></div>
 
         <label for="cpf">🆔 CPF:</label>
@@ -169,9 +169,6 @@
         <button id="modal-ok">OK</button>
     </div>
 </div>
-<!-- Overlay -->
-<div id="overlay" class="overlay"> </div>
-
     <script src="script.js"></script>
     <script src="modo-escuro.js"></script>
 </body>

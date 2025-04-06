@@ -22,7 +22,6 @@
     const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
 
     if (!usuario) {
-      // Redireciona se não estiver logado
       window.location.href = "index.html";
     } else {
       document.getElementById("nomeUsuario").textContent = usuario.nome;
@@ -35,8 +34,6 @@
       window.location.href = "index.html";
     });
   </script>
-
-  <!-- Aqui está a inclusão do modo escuro -->
-  <script src="modo-escuro.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
