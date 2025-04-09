@@ -15,7 +15,7 @@ Antes de rodar o projeto localmente, você precisa ter as seguintes ferramentas 
 Passos para rodar o projeto:
 
 Clone o repositório:
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/felipebispo/programa-trilhas.git
 
 
 Acesse o diretório do projeto:
