@@ -19,7 +19,7 @@ git clone https://github.com/felipebispo/programa-trilhas.git
 
 
 Acesse o diretório do projeto:
-cd seu-repositorio
+cd "Desafio 2/Projeto"
 
 
 Abra o projeto no seu editor de código (por exemplo, VSCode):
